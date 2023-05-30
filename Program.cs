@@ -3,21 +3,21 @@
 
     public static void Main(string[] args)
     {
-        List<Employee> employees = new()
+        List<Employee> employees = new() //список сотрудников
         {
-            new Employee("Жуков Антон Павлович", 1, 12000),
-            new Employee("Миклашевский Данила Сергеевич ", 1, 15000),
-            new Employee("Горбачёв Евгений Иосифич", 2, 17000),
-            new Employee("Реброва Светлана Вадимовна", 2, 1200),
-            new Employee("Чанин Дмитрий Додопиццевич", 3, 4200),
-            new Employee("Джамал Иван Артурович", 3, 5000),
-            new Employee("Ламтюгина Олеся Ивановна", 4, 8000),
-            new Employee("Косых Иван Андреевич", 4, 80000),
-            new Employee("Орехов Владислав Владиславович", 5, 17500),
-            new Employee("Нагиев Дмитрий Вячеславович", 5, 100)
+            new Employee("Миклашевский Данила Сергеевич", 1, 5555),
+            new Employee("Жуков Антон Павлович ", 1, 6666),
+            new Employee("Погорелов Артем Александрович", 2, 4444),
+            new Employee("Шевченко Артем Денисович", 2, 1111),
+            new Employee("Шевченко Макар Николаевич", 3, 2222),
+            new Employee("Нехаева Эвелина Владимировна", 3, 3333),
+            new Employee("Ламтюгина Олеся Ивановна", 4, 8888),
+            new Employee("Лагунов Данил Сереевич", 4, 7777),
+            new Employee("Лапин Александр Дмитриевич", 5, 9999),
+            new Employee("Ларин Данила Васильевич", 5, 1010)
         };
 
-        void EmployeeInfo()
+        void EmployeeInfo() // информация по сотрудникам
         {
             foreach (var emp in employees)
             {
@@ -26,7 +26,7 @@
                     $" {emp.Salary}");
             }
         }
-        void EmployeeSalary()
+        void EmployeeSalary() //суммарные зтраты на зп в месяц
         {
             double sum = 0;
             foreach (Employee emp in employees)
@@ -35,20 +35,20 @@
             }
             Console.WriteLine($"Сумма затрат на зарплаты в месяц: {sum}");
 
-        }
-        void MinSalary()
+        } 
+        void MinSalary() //минимальная за сотрудника
         {
             Console.WriteLine($"Человек с самой минимальной зарплатой {employees.Min(e => e.Salary + "рублей: " + e.Fio)} ");
         }
-        void MaxSalary()
+        void MaxSalary() //максимальная зп сотрудника
         {
             Console.WriteLine($"Человек с самой максимальной зарплатой {employees.Max(e => e.Salary + "рублей: " + e.Fio)} ");
         }
-        void AvgSalary()
+        void AvgSalary() //среднее зп по офису
         {
             Console.WriteLine($"Среднее значение зарплат: {employees.Average(e => e.Salary)}");
         }
-        void EmlployeeFio()
+        void EmlployeeFio() //ФИО сотрудников
         {
             foreach (var emp in employees)
             {
@@ -56,7 +56,7 @@
             }
 
         }
-        void SalaryPrecent()
+        void SalaryPrecent() //индексация зп на определенный процент
         {
             Console.WriteLine("Введите процент на который увеличится зарплата работников: ");
             double percent = double.Parse(Console.ReadLine());
@@ -68,7 +68,7 @@
                 Console.WriteLine($"Теперь зарплата сотрудника {emp.Fio} составляет: {salary} рублей");
             }
         }
-        void DepartmentEmployee()
+        void DepartmentEmployee() //зп по отделам
         {
 
             Console.WriteLine("Введите номер отдела:");
@@ -81,7 +81,7 @@
                 }
             }
         }
-        void DepartamentSalaryMin()
+        void DepartamentSalaryMin() //минимальная зп по отделам
         {
             Console.WriteLine("Введите номер отдела");
             double department = double.Parse(Console.ReadLine());
@@ -96,7 +96,7 @@
                 Console.WriteLine($"Отдел {department} не найден или не имеет сотрудников.");
             }
         }
-        void DepartamentSalaryMax()
+        void DepartamentSalaryMax() // максимальная зп по отделам
         {
             Console.WriteLine("Введите номер отдела"); double department = double.Parse(Console.ReadLine());
             var employeesInDepartment = employees.Where(e => e.Department == department); if (employeesInDepartment.Any())
@@ -109,7 +109,7 @@
                 Console.WriteLine($"Отдел {department} не найден или не имеет сотрудников.");
             }
         }
-        void test9()
+        void test9()//зп по отделу
             {
                 Console.WriteLine("Введите число:");
                 double expected_salary = double.Parse(Console.ReadLine());
@@ -126,22 +126,22 @@
 
             while (true)
             {
-                Console.WriteLine("Напишите 20, чтобы узнать информацию о всех заданиях");
+                Console.WriteLine("Напишите 0, чтобы узнать информацию о всех заданиях");
 
-                int number_mission = Convert.ToInt32(Console.ReadLine());
+                int number_mission = Convert.ToInt32(Console.ReadLine()); // обзор по заданиям
                 switch (number_mission)
                 {
-                    case 20:
-                        Console.WriteLine("1-е задание: Все данные сотрудников");
-                        Console.WriteLine("2-е задание: Сумма затрат на зп в месяц");
-                        Console.WriteLine("3-е задание: Сотрудник с минимальной зарплатой");
-                        Console.WriteLine("4-е задание: Сотрудник с максимальной зарплатой");
-                        Console.WriteLine("5-е задание: Среднее значение зарплат");
+                    case 0:
+                        Console.WriteLine("1-е задание: данные по всем сотрудникам");
+                        Console.WriteLine("2-е задание: затраты на зп");
+                        Console.WriteLine("3-е задание: сотрудник с самой маленькой зп");
+                        Console.WriteLine("4-е задание: сотрудник с самой высокой зп");
+                        Console.WriteLine("5-е задание: среднее зп ");
                         Console.WriteLine("6-е задание: ФИО всех сотрудников");
-                        Console.WriteLine("7-е задание: На какой процент вы хотите увеличить зарплату");
+                        Console.WriteLine("7-е задание: индексация зп на фиксированный процент");
                         Console.WriteLine("8-е задание: Узнать зарплаты сотрудников в определённом отделе");
-                        Console.WriteLine("9-е задание: Минимальная зарплата в каком-то отделе");
-                        Console.WriteLine("10-е задание: Максимальная зарплата в каком-то отделе");
+                        Console.WriteLine("9-е задание: Минимальная зп в определенном отделе");
+                        Console.WriteLine("10-е задание: Максимальная зп в определенном отделе");
 
                     break;
                 }
